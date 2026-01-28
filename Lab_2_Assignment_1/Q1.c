@@ -1,5 +1,10 @@
-//Question 1
-#include <stdio.h>
+/*Q1) Suppose there are 20 students in a class. Each student has 2 subjects.
+    Enter the marks of each student (maximum 100 in each subject) and store them
+    in a 2D array of size 20×3, where the columns represent:
+    Subject 1, Subject 2, and Total.
+    Display the array and show the total marks of each student out of 200.*/
+
+    #include <stdio.h>
 
 int main()
 {
