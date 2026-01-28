@@ -1,4 +1,8 @@
-//Question 2
+/*Q2) Suppose there are 5 students in a class and each student has 5 subjects.
+    Enter the marks of the students in a 2D array (maximum marks = 100 in each subject).
+    Calculate and display the total marks and percentage of each student in
+    tabular form.*/
+    
 #include <stdio.h>
 
 int main(){
