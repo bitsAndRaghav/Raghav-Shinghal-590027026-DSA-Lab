@@ -29,7 +29,6 @@ int main()
 
             total[i] += marks[i][j];
         }
-
         percentage[i] = total[i] / 5.0;
     }
 
