@@ -1,23 +1,24 @@
-// Write a C program to find the largest and smallest elements of an array.
+// Write a C program to find the largest and smallest 
+// elements of an array.
 
 #include <stdio.h>
 
 void main() {
-    int n, i;
-    printf("Enter number of elements: ");
+    int n,i;
+    printf("Enter size: ");
     scanf("%d",&n);
 
-    int a[n];
-    printf("Enter elements:\n");
+    int v[n];
+    printf("Enter values:\n");
     for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+        scanf("%d",&v[i]);
 
-    int max=a[0], min=a[0];
+    int hi=v[0], lo=v[0];
 
     for(i=1;i<n;i++) {
-        if(a[i]>max) max=a[i];
-        if(a[i]<min) min=a[i];
+        if(v[i]>hi) hi=v[i];
+        if(v[i]<lo) lo=v[i];
     }
 
-    printf("Largest = %d\nSmallest = %d", max, min);
+    printf("Largest: %d\nSmallest: %d",hi,lo);
 }

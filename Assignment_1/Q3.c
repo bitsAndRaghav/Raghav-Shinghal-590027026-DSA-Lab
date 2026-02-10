@@ -1,26 +1,26 @@
-// Enter marks of students in 5 subjects using 2D array and print total and percentage.
+// Enter marks of students in 5 subjects using 2D array 
+// and print total and percentage.
 
 #include <stdio.h>
 
 void main() {
-    int n, i, j;
-    printf("Enter number of students: ");
-    scanf("%d", &n);
+    int n,i,j;
+    printf("Enter students count: ");
+    scanf("%d",&n);
 
     int m[n][5];
 
     for(i=0;i<n;i++) {
-        printf("Enter marks of Student %d (5 subjects): ", i+1);
+        printf("Enter 5 marks for student %d:\n",i+1);
         for(j=0;j<5;j++)
-            scanf("%d", &m[i][j]);
+            scanf("%d",&m[i][j]);
     }
 
-    printf("\nStudent  Total  Percentage\n");
-
+    printf("\nTotal and percentage:\n");
     for(i=0;i<n;i++) {
-        int sum=0;
+        int t=0;
         for(j=0;j<5;j++)
-            sum += m[i][j];
-        printf("%7d %6d %10.2f\n", i+1, sum, sum/5.0);
+            t+=m[i][j];
+        printf("%d %.2f\n",t,t/5.0);
     }
 }

@@ -3,17 +3,17 @@
 #include <stdio.h>
 
 void main() {
-    int n,i;
-    printf("Enter number of elements: ");
+    int n,k;
+    printf("Enter size: ");
     scanf("%d",&n);
-    int a[n];
-    printf("Enter elements:\n");
-    for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+
+    int x[n];
+
+    printf("Enter values:\n");
+    for(k=0;k<n;k++)
+        scanf("%d",&x[k]);
+
     printf("Array:\n");
-    i=0;
-    while(i<n) {
-        printf("%d ",a[i]);
-        i++;
-    }
+    for(k=0;k<n;k++)
+        printf("%d ",x[k]);
 }
