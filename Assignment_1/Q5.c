@@ -1,18 +1,41 @@
-// Write a C program to display the elements of an array in reverse order.
-
+/* Write a C program using structure and dynamic memory allocation 
+to store and display student details such as roll number, name, and marks.
+*/
 #include <stdio.h>
+#include <stdlib.h>
+
+struct student {
+    int roll;
+    char name[30];
+    float marks;
+};
 
 void main() {
     int n,i;
-    printf("Enter size: ");
+    struct student *s;
+
+    printf("Enter number of students: ");
     scanf("%d",&n);
 
-    int a[n];
-    printf("Enter elements:\n");
-    for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+    s = (struct student*) malloc(n * sizeof(struct student));
 
-    printf("Reverse:\n");
-    for(i=n-1;i>=0;i--)
-        printf("%d ",a[i]);
+    if(s == NULL) {
+        printf("Memory allocation failed");
+        return;
+    }
+
+    for(i=0;i<n;i++) {
+        printf("Enter roll number of student %d: ", i+1);
+        scanf("%d",&s[i].roll);
+        printf("Enter name of student %d: ", i+1);
+        scanf("%s",s[i].name);
+        printf("Enter marks of student %d: ", i+1);
+        scanf("%f",&s[i].marks);
+    }
+
+    printf("\nStudent Details:\n");
+    for(i=0;i<n;i++)
+        printf("%d %s %.2f\n", s[i].roll, s[i].name, s[i].marks);
+
+    free(s);
 }

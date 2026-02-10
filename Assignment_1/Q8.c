@@ -1,24 +1,28 @@
-// Write a C program to delete an element from a specified position.
+/*
+Write a C program to demonstrate the use of union by storing integer,
+float, and character data and explain memory sharing.
+*/
 
 #include <stdio.h>
 
+union data {
+    int i;
+    float f;
+    char c;
+};
+
 void main() {
-    int n,i,p;
-    printf("Enter size: ");
-    scanf("%d",&n);
+    union data d;
 
-    int a[n];
-    printf("Enter elements:\n");
-    for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+    printf("Enter integer value: ");
+    scanf("%d",&d.i);
+    printf("Stored integer: %d\n", d.i);
 
-    printf("Enter position: ");
-    scanf("%d",&p);
+    printf("Enter float value: ");
+    scanf("%f",&d.f);
+    printf("Stored float: %.2f\n", d.f);
 
-    for(i=p-1;i<n-1;i++)
-        a[i]=a[i+1];
-
-    printf("After deletion:\n");
-    for(i=0;i<n-1;i++)
-        printf("%d ",a[i]);
+    printf("Enter character value: ");
+    scanf(" %c",&d.c);
+    printf("Stored character: %c\n", d.c);
 }

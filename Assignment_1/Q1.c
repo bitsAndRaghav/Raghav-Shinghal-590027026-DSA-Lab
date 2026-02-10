@@ -1,19 +1,31 @@
-// Write a C program to read n elements into an array and display the elements using a for loop.
-
+/* Write a C program to dynamically allocate memory
+for an array, display elements, and properly free 
+allocated memory before program termination.
+*/
 #include <stdio.h>
+#include <stdlib.h>
 
 void main() {
-    int n,k;
-    printf("Enter size: ");
+    int n,i;
+    int *arr;
+
+    printf("Enter number of elements: ");
     scanf("%d",&n);
 
-    int x[n];
+    arr = (int*) malloc(n * sizeof(int));
 
-    printf("Enter values:\n");
-    for(k=0;k<n;k++)
-        scanf("%d",&x[k]);
+    if(arr == NULL) {
+        printf("Memory allocation failed");
+        return;
+    }
 
-    printf("Array:\n");
-    for(k=0;k<n;k++)
-        printf("%d ",x[k]);
+    printf("Enter elements:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+
+    printf("Array elements:\n");
+    for(i=0;i<n;i++)
+        printf("%d ",arr[i]);
+
+    free(arr);
 }

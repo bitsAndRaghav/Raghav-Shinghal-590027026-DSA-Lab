@@ -1,28 +1,58 @@
-// Write a C program to insert a new element at a specified position in an array.
+/*
+Write a menu-driven C program using structure and dynamic memory allocation
+to add, display, delete records and free memory before exit.
+*/
 
 #include <stdio.h>
+#include <stdlib.h>
+
+struct rec {
+    int id;
+    char name[30];
+};
 
 void main() {
-    int n,i,p,val;
-    printf("Enter size: ");
-    scanf("%d",&n);
+    struct rec *r = NULL;
+    int ch,n=0,i,pos;
 
-    int a[n+1];
-    printf("Enter elements:\n");
-    for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+    while(1) {
+        printf("\n1.Add  2.Display  3.Delete  4.Exit\n");
+        printf("Enter choice: ");
+        scanf("%d",&ch);
 
-    printf("Enter position: ");
-    scanf("%d",&p);
-    printf("Enter value: ");
-    scanf("%d",&val);
-
-    for(i=n;i>p-1;i--)
-        a[i]=a[i-1];
-
-    a[p-1]=val;
-
-    printf("Updated array:\n");
-    for(i=0;i<=n;i++)
-        printf("%d ",a[i]);
+        if(ch==1) {
+            n++;
+            r = (struct rec*) realloc(r, n * sizeof(struct rec));
+            printf("Enter id: ");
+            scanf("%d",&r[n-1].id);
+            printf("Enter name: ");
+            scanf("%s",r[n-1].name);
+        }
+        else if(ch==2) {
+            if(n==0)
+                printf("No records\n");
+            else
+                for(i=0;i<n;i++)
+                    printf("%d %s\n", r[i].id, r[i].name);
+        }
+        else if(ch==3) {
+            if(n==0) {
+                printf("No records to delete\n");
+            } else {
+                printf("Enter position to delete: ");
+                scanf("%d",&pos);
+                for(i=pos-1;i<n-1;i++)
+                    r[i]=r[i+1];
+                n--;
+                r = (struct rec*) realloc(r, n * sizeof(struct rec));
+            }
+        }
+        else if(ch==4) {
+            free(r);
+            break;
+        }
+        else {
+            printf("Invalid choice\n");
+        }
+    }
 }
